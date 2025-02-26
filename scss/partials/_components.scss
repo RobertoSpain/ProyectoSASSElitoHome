@@ -1,0 +1,99 @@
+@use '../_mixin' as *; 
+@use '../variables' as vars;
+
+.boton {
+    @include button(vars.$primary-color, vars.$secondary-color);
+}
+
+// ----- BOTONES -----
+.button-primary {
+  display: inline-block;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  font-family: vars.$primary-font;
+  
+  // Usando el mixin respond para responsividad
+  @include respond("mobile") {
+    width: 100%;
+    text-align: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  @include respond("tablet") {
+    padding: 0.8rem 1.75rem;
+    font-size: 0.95rem;
+  }
+  
+  @include respond("desktop") {
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+// Card de presentación
+.card {
+  border: 0.0625rem solid rgba(0,0,0,0.1); 
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.1); 
+  @include alto-ancho(25rem, 30rem);
+  overflow: hidden;
+  @include flex(column, center, center);
+  gap: 1rem;
+  min-height: 30rem;
+  font-family: vars.$primary-font;
+
+  img {
+    width: 100%;
+    height: 15rem;
+    object-fit: cover;
+  }
+  
+  h3 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: vars.$heading-font;
+  }
+  
+  // Usando el mixin respond para responsividad en cards
+  @include respond("mobile") {
+    width: 100%;
+    height: auto;
+    min-height: 25rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    
+    img {
+      height: 12rem;
+    }
+    
+    h3 {
+      font-size: 1.1rem;
+    }
+  }
+  
+  @include respond("tablet") {
+    width: 90%;
+    margin-bottom: 1.25rem;
+    
+    img {
+      height: 14rem;
+    }
+  }
+  
+  @include respond("desktop") {
+    width: 25rem;
+    margin-bottom: 0;
+    transition: transform 0.3s, box-shadow 0.3s;
+    
+    &:hover {
+      transform: translateY(-0.5rem);
+      box-shadow: 0 0.625rem 1.25rem rgba(0,0,0,0.1);
+    }
+  }
+}

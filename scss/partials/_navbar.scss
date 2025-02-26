@@ -1,0 +1,115 @@
+/**
+ * @module Navigation
+ * @description Estilos para el menú de navegación.
+ */
+@use '../variables' as vars;
+@use '../_mixin' as *;
+@use 'sass:color'; 
+
+.navbar {
+    background-color: vars.$primary-color;
+    padding: 1rem;
+    
+    @include flex(row, space-between, center);
+    
+    width: 100%; // Cambiado a 100% para que sea realmente responsivo
+    max-width: vars.$max-content-width;
+    margin: 0 auto;
+    box-sizing: border-box; // Asegurar que el padding no afecte el ancho total
+
+    .logo-img {
+        width: 3rem; // Set the desired size for the logo image
+        height: auto;
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+        
+        a {
+            color: vars.$text-color; 
+            text-shadow: 0 0.0625rem 0.125rem vars.$shadow-color; /* Sombra sutil para mejorar legibilidad */
+            text-decoration: none;
+            margin: 0 0.5rem;
+            padding: 0.3rem 0.6rem;
+            border-radius: 0.1875rem;
+            position: relative;
+            transition: all 0.3s ease;
+            font-family: vars.$primary-font;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -0.125rem;
+                left: 0.6rem;
+                right: 0.6rem;
+                height: 0.125rem;
+                background-color: vars.$accent-color;
+                transform: scaleX(0);
+                transition: transform 0.3s ease;
+            }
+            
+            &:hover {
+                color: vars.$secondary-color;
+                background-color: transparent;
+                
+                &::after {
+                    transform: scaleX(1);
+                }
+            }
+            
+            // Color alternativo (si quieres otra opción)
+            &.secondary {
+                color: vars.$light-blue; // Color celeste claro
+            }
+        }
+    }
+    
+    .logo {
+        color: vars.$text-color;
+        font-weight: 700;
+        font-size: 0.9rem;
+        padding: 0.8rem;
+        position: relative;
+        font-family: vars.$heading-font;
+    }
+
+    @include respond("mobile") {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.5rem;
+        width: 100%;
+
+        .logo-img {
+            width: 2.5rem; // Ligeramente más pequeño en móvil
+        }
+
+        .menu {
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+            margin-top: 0.5rem;
+            justify-content: center;
+
+            a {
+                width: 100%;
+                padding: 1rem;
+                text-align: left;
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
+    }
+
+    @include respond("tablet") {
+        width: 95%;
+        padding: 0.75rem;
+
+        .menu {
+            a {
+                padding: 0.5rem 0.75rem;
+            }
+        }
+    }
+}
+

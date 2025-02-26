@@ -1,0 +1,16 @@
+// Archivo principal Sass del framework fusionado
+
+@use 'mixin';
+@use 'partials/variables'; 
+@use './base';              
+@use 'partials/components';
+@use 'partials/hero';
+@use 'partials/navbar';
+@use 'partials/navigation';
+@use 'partials/layout';
+@use 'partials/carruselReseñas';
+@use 'partials/responsive';
+@use 'partials/slogan';
+@use './layout/footer';
+@use 'partials/detallescasa';
+@use 'partials/header';

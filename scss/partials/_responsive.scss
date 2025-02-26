@@ -1,0 +1,70 @@
+@use "../_mixin" as *;
+
+// Móviles (max-width: 30rem ~480px)
+@include respond("mobile") {
+  body {
+    padding: 0.5rem;
+    font-size: 0.875rem;
+  }
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+  .menu {
+    flex-direction: column;
+    font-size: 0.8rem;
+  }
+  .hero-content {
+    padding: 1rem;
+  }
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+  }
+}
+
+// Tablets (min-width: 30rem and max-width: 48rem ~768)
+@include respond("tablet") {
+  body {
+    padding: 0.75rem;
+    font-size: 0.9375rem;
+  }
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 0.9rem;
+  }
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .card {
+    width: 90%;
+    margin-bottom: 1.25rem;
+  }
+}
+
+// PC y pantallas grandes (min-width: 75rem ~1200px)
+@include respond("desktop") {
+  body {
+    font-size: 1.125rem;
+  }
+  .navbar {
+    padding: 1rem;
+  }
+  .cards {
+    /* Centrar las cards en lugar de distribuirlas de forma espaciosa */
+    justify-content: center;
+  }
+  .card {
+    width: 25rem;
+    margin-bottom: 0;
+  }
+}

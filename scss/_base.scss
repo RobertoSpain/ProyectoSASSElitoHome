@@ -1,0 +1,61 @@
+@use 'variables' as vars;
+@use './_mixin' as *;
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  font-family: vars.$primary-font;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: vars.$base-font-size;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+}
+
+.container {
+  width: 100%;
+  @include grid(8, 1);
+  @include page-size();
+  gap: 1.2rem;
+  margin: 0;
+  max-width: none;
+  background-color: transparent;
+  padding: 0;
+}
+
+.featured .card {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.featured .card:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 0.625rem 1.25rem vars.$shadow-color;
+}
+
+.featured .cards {
+  @include flex(row, center, center); 
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+section {
+  margin-bottom: 0;
+}
+
+section.with-margin {
+  margin-bottom: 2rem;
+}
+
+h1, h2, h3, p {
+  margin-top: 0;
+}

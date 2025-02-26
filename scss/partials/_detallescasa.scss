@@ -1,0 +1,46 @@
+@use '../variables' as vars;
+
+body {
+  background-color: vars.$primary-color;
+  color: vars.$text-color;
+}
+
+.navbar a {
+  color: vars.$text-color;
+}
+
+.house-details {
+  background-color: vars.$bg-light-transparent;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  color: vars.$text-color;
+}
+
+.house-details h2 {
+  color: vars.$accent-color;
+}
+
+.house-details p,
+.house-details li {
+  color: vars.$text-color;
+}
+
+.house-details ul {
+  background-color: vars.$bg-dark-medium;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  list-style-type: none;
+}
+
+.house-details ul li {
+  margin-bottom: 0.5rem;
+}
+
+footer,
+footer a {
+  color: vars.$text-color;
+}
+
+strong {
+  color: vars.$accent-color;
+}

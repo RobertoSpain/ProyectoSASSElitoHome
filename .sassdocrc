@@ -1,0 +1,16 @@
+{
+  "dest": "docs/sassdoc",
+  "verbose": true,
+  "display": {
+    "access": ["public", "private"],
+    "alias": true,
+    "watermark": true
+  },
+  "groups": {
+    "accent-colors": "Accent Colors",
+    "transparency": "Transparency Effects",
+    "typography": "Typography",
+    "layout": "Layout"
+  },
+  "theme": "default"
+}

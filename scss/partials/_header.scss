@@ -1,0 +1,53 @@
+/**
+ * @module Header
+ * @description Estilos para la cabecera (header) de la aplicación, con fondo y título.
+ */
+@use '../variables' as vars; // Importar variables
+@use '../_mixin' as mixin; 
+
+.header {
+  position: relative;
+  background: url('../img/casa.jpg') no-repeat center center/cover;
+  min-height: 80vh; 
+   
+  // Contenedor de contenido que se centra y limita el ancho
+  .header-content {
+    position: relative;
+    z-index: 2;
+    padding: 0.5rem 2rem;
+    height: 80vh; 
+    margin: 0 auto;
+    max-width: vars.$max-content-width;
+    
+    // Usamos flex para alinear el contenido en la esquina superior derecha
+    @include mixin.flex(column, flex-start, flex-end);
+  }
+  
+  .header-content h1 {
+    font-size: 2.5rem;
+    color: vars.$primary-color;
+    text-shadow: 0.125rem 0.125rem 0.25rem vars.$shadow-color; 
+    background-color: vars.$bg-header-overlay;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3125rem; 
+    margin: 0;
+    font-family: vars.$heading-font;
+  }
+  
+  .header .header-content h1 {
+    font-size: 2.5rem;
+  }
+
+  @include mixin.respond("tablet") {
+    .header .header-content h1 {
+      font-size: 2.2rem; // Valor intermedio en tablet
+    }
+  }
+  
+  @include mixin.respond("mobile") {
+    .header .header-content h1 {
+      font-size: 2rem; 
+      padding: 0.5rem 0.8rem; // Ajusta el padding si es necesario
+    }
+  }
+}

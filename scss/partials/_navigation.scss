@@ -1,0 +1,23 @@
+/**
+ * @module Navigation
+ * @description Estilos para el menú de navegación.
+ */
+ @use 'sass:color'; // Importar el módulo de colores
+ @use 'partials/variables' as vars; // Importar variables
+ @use "../_mixin" as *; // Importa el mixin sin alias
+ 
+ .navbar {
+   background-color: vars.$primary-color; // Usar la variable $primary-color
+   padding: 1rem;
+   @include flex(row, space-between, center);
+ 
+   a {
+     color: vars.$text-color; // Usar la variable $text-color
+     text-decoration: none;
+     margin: 0 0.5rem;
+ 
+     &:hover {
+       background-color: color.adjust(vars.$primary-color, $lightness: 10%); // Usar color.adjust
+     }
+   }
+ }
